@@ -23,13 +23,11 @@ module.exports = {
     },
     firstName: {
       type: 'string',
-      required: true,
       maxLength: 255,
       example: 'Michel'
     },
     lastName: {
       type: 'string',
-      required: true,
       maxLength: 255,
       example: 'Mélenchon'
     },

@@ -28,6 +28,8 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
+
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
@@ -44,6 +46,10 @@ module.exports.routes = {
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
+  'post /api/users/login': "UserController.login",
+  'patch /api/users/login': "UserController.login",
+
+  'post /api/users/signup': "UserController.signup",
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
