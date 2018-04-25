@@ -38,7 +38,8 @@ module.exports = {
   fn: async function (inputs, exits) {
     var attr = {
       email: inputs.email.toLowerCase(),
-      password: inputs.password
+      password: inputs.password,
+      username: inputs.username
     };
 
     if(inputs.password){
