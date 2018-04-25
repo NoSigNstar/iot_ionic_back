@@ -1,4 +1,4 @@
-module.exports = function (req,res, proceed) {
+module.exports = function (req,res, next) {
   var token;
 
   if ( req.headers && req.headers.authorization ) {
@@ -21,11 +21,13 @@ module.exports = function (req,res, proceed) {
     return res.json( 401, { err: { status: 'danger', message: res.i18n('auth.policy.noAuthorizationHeaderFound') }});
   }
 
-  TokenAuth.verifyToken(token, function(err, decodedToken) {
+  jwt.verify(token, jwt.jwtSecret, function(err, decodedToken) {
     if ( err ) return res.json( 401, { err: { status: 'danger', message: res.i18n('auth.policy.invalidToken'), detail: err }});
 
     req.token = decodedToken.sub;
 
     next();
   });
+
+  next();
 }
