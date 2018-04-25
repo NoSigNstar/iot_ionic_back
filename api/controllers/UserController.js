@@ -20,8 +20,7 @@ module.exports = {
 
     let returnUser = {
       email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName
+      username: user.username
     }
     let token = jwt.sign({id: user.id, email: user.email}, sails.config.jwt.jwtSecret, {expiresIn: sails.config.jwt.jwtExpiresIn})
     return res.ok({
