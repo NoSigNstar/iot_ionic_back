@@ -31,6 +31,11 @@ module.exports = {
       maxLength: 255,
       example: 'Mélenchon'
     },
+    username: {
+      type: 'string',
+      maxLength: 255,
+      example: 'karlos'
+    },
     dateOfBirth: {
       type: 'number',
       isBefore: new Date()

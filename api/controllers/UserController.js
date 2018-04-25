@@ -18,8 +18,16 @@ module.exports = {
 
     await bcrypt.compare(req.body.password, user.password)
 
-    let token = jwt.sign({id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName}, sails.config.jwt.jwtSecret, {expiresIn: sails.config.jwt.jwtExpiresIn})
-    return res.ok(token)
+    let returnUser = {
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName
+    }
+    let token = jwt.sign({id: user.id, email: user.email}, sails.config.jwt.jwtSecret, {expiresIn: sails.config.jwt.jwtExpiresIn})
+    return res.ok({
+      token: token,
+      user: returnUser
+    })
   },
   logout: function (req, res) {
 
@@ -40,7 +48,8 @@ module.exports = {
     let user = await
     sails.helpers.createUser.with({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      username: req.body.username
       }
     )
     let token = jwt.sign({id: user.id, email: user.email}, sails.config.jwt.jwtSecret, {expiresIn: sails.config.jwt.jwtExpiresIn})
