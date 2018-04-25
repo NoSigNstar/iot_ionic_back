@@ -38,6 +38,9 @@ module.exports = {
     if (_.isUndefined(req.body.password)) {
       return res.badRequest('met un mdp')
     }
+    if (_.isUndefined(req.body.password)) {
+      return res.badRequest('need a username')
+    }
     if (req.body.email.length < 2) {
       return res.badRequest('mdp de merde')
     }

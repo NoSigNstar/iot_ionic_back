@@ -15,6 +15,9 @@ module.exports = {
     },
     password: {
       type: 'string'
+    },
+    username: {
+      type: 'string'
     }
 
   },
@@ -33,8 +36,6 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    console.log('************')
-    console.log(inputs)
     var attr = {
       email: inputs.email.toLowerCase(),
       password: inputs.password
