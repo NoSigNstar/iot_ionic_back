@@ -21,7 +21,7 @@ module.exports = function (req,res, next) {
     return res.json( 401, { err: { status: 'danger', message: res.i18n('auth.policy.noAuthorizationHeaderFound') }});
   }
 
-  jwt.verify(token, jwt.jwtSecret, function(err, decodedToken) {
+  jwt.verify(token, sails.config.jwt.jwtSecret, function(err, decodedToken) {
     if ( err ) return res.json( 401, { err: { status: 'danger', message: res.i18n('auth.policy.invalidToken'), detail: err }});
 
     req.token = decodedToken.sub;
