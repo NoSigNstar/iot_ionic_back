@@ -1,4 +1,6 @@
-module.exports = function (req,res, next) {
+var jwt = require('jsonwebtoken')
+
+module.exports = function (req, res, next) {
   var token;
 
   if ( req.headers && req.headers.authorization ) {
@@ -25,8 +27,6 @@ module.exports = function (req,res, next) {
     if ( err ) return res.status( 401).json({ err: { status: 'danger', message: 'auth.policy.invalidToken', detail: err }});
 
     req.token = decodedToken.sub;
-
-    next();
   });
 
   next();
