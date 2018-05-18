@@ -18,6 +18,12 @@ module.exports = {
     },
     username: {
       type: 'string'
+    },
+    firstName:{
+      type: 'string'
+    },
+    lastName:{
+      type: 'string'
     }
 
   },
@@ -39,7 +45,10 @@ module.exports = {
     var attr = {
       email: inputs.email.toLowerCase(),
       password: inputs.password,
-      username: inputs.username
+      username: inputs.username,
+      firstName: inputs.firstName,
+      lastName: inputs.lastName
+
     };
 
     if(inputs.password){
@@ -48,8 +57,9 @@ module.exports = {
         .intercept('E_UNIQUE', () => 'EmailAlreadyInUse')
         .intercept({name: 'UsageError'}, () => 'Invalid')
         .fetch()
-
+      console.log('mon attr:' + attr.firstName)
       return exits.success(user);
+      console.log('succes:' + user)
     } else {
       return exits.invalid("Missing password")
     }

@@ -16,13 +16,13 @@ module.exports = {
     text: {
       type: 'string',
       maxLength: 255,
-      example: 'Michel'
+      example: 'Message'
     },
 
     pseudo: {
       type: 'string',
       maxLength: 255,
-      example: 'Michel'
+      example: 'Message'
     },
 
 

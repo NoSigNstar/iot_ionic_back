@@ -19,22 +19,22 @@ module.exports = {
       required: true,
       isEmail: true,
       maxLength: 255,
-      example: 'toto@kekmail.com'
+      example: 'toto@gmail.com'
     },
     firstName: {
       type: 'string',
       maxLength: 255,
-      example: 'Michel'
+      example: 'Johnn'
     },
     lastName: {
       type: 'string',
       maxLength: 255,
-      example: 'Mélenchon'
+      example: 'Doe'
     },
     username: {
       type: 'string',
       maxLength: 255,
-      example: 'karlos'
+      example: 'Ezob'
     },
     dateOfBirth: {
       type: 'number',
